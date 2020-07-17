@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000"/>
+    <!-- Bootstrap CSS -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% include 'react/css.html' %}
+    <title>Tweet {% block head_title %}{% endblock head_title %}</title>
+    <style>
+        div.ex1 {
+            background-color: lightblue;
+            width: 600px;
+            height: 1000px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="mx-auto" style="width: 100%">
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div class="w-100 h-100" style="position:relative;">
+    <div class="w-100 p-0 " style="position: relative">
+        {% block content %}
+        {% endblock content %}
+        {% block cc %}
+        {% endblock cc %}
+    </div>
+</div>
+
+
+{% include 'react/base_embed.html' %}
+{% include 'react/js.html' %}
+</body>
+</html>

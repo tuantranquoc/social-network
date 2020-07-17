@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>{{ profile_username }}</p>
+    <div id="tweetme-2" data-username={{ profile_username }}
+            data-can-tweet="false"></div>
+    <script>
+        console.log({{ profile_username }})
+    </script>
+{% endblock content %}

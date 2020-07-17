@@ -1,0 +1,87 @@
+<nav class="navbar mx-auto px-3 py-0 h-100 container-fluid navbar-expand-lg navbar-dark mb-2 navbar-inverse"
+     style="background: #2bbbad; width: 80%">
+    <a class="navbar-brand" style="font-size: 19px;
+    font-weight: 700;
+    line-height: 2px;
+    color: #fffefe;
+    font-family: system-ui,serif; text-decoration: none; width: 100px;"
+       href="/global/">ToDo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+        </span>
+    </button>
+    {% csrf_token %}
+    <form method="post" action="/hash_tag/search" class="collapse navbar-collapse form-inline">
+        {% csrf_token %}
+        <div class="active-purple-3 form-group-sm active-purple-4 mr-2">
+            <button type="submit" class="btn fa position-relative fa-search"
+                    style="background: #faf3fd; font-size: 15px;margin-right: -55px; z-index: 2">
+            </button>
+            <input class="form-control pl-5 py-0 ex input-lg" type="text" name="hash_tag"
+                   aria-label="Search" style="background-color: #faf3fd;
+                    color: #000000;
+                    border: 0;
+                    border-bottom: 2px solid white; font-size: 15px; z-index: 1"
+                   placeholder="Search..."/>
+        </div>
+    </form>
+    <div class="collapse navbar-collapse " id="navbarNav">
+
+    </div>
+    <nav class="navbar collapse navbar-collapse  p-0 navbar-light ml-auto">
+        <ul class="navbar-nav w-100 text-center">
+            {% if request.user.is_authenticated %}
+                <div class="d-inline-flex ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold" style="font-size: 19px;
+        font-weight: 700;
+        line-height: 2px;
+        color: #fffefe;
+        font-family: system-ui,serif; text-decoration: none; width: 100px;" href="/logout/">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-size: 19px;
+        font-weight: 700;
+        line-height: 2px;
+        color: #fffefe;
+        font-family: system-ui,serif; text-decoration: none; width: 100px;"
+                           href="/profile/edit/view/">Edit<span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-size: 19px;
+        font-weight: 700;
+        line-height: 2px;
+        color: #fffefe;
+        font-family: system-ui,serif; text-decoration: none; width: 100px;"
+                           href="/profile/">{{ request.user }}<span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item" style="">
+
+                    </li>
+                </div>
+            {% else %}
+                <div class="d-inline-flex ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-size: 19px;
+        font-weight: 700;
+        line-height: 2px;
+        color: #fffefe;
+        font-family: system-ui,serif; text-decoration: none; width: 100px;" href="/login/">Login <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-size: 19px;
+        font-weight: 700;
+        line-height: 2px;
+        color: #fffefe;
+        font-family: system-ui,serif; text-decoration: none; width: 100px;" href="/register/">Register<span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                </div>
+            {% endif %}
+        </ul>
+    </nav>
+</nav>

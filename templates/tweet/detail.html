@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <style>
+        div.ex1 {
+            position: fixed;
+            top: -1px;
+            z-index: 2;
+        }
+            input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border-color: #1b6d85;
+        }
+        div.ex2 {
+            z-index: 1;
+        }
+
+        div.ex3 {
+            position: fixed;
+            left: 8%;
+            top: 68px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        div.ex4 {
+            position: fixed;
+            top: 60px;
+            left: 65%;
+            width: 100%;
+            z-index: 2;
+        }
+       div.ex5 {
+             position: fixed;
+            bottom: 22%;
+            left: 66%;
+            width: 100%;
+            z-index: 2;
+        }
+    </style>
+    <div style="position: relative">
+           <div class="w-100 h-auto ex1" style="background-color: #FFFFFF">
+            {% include "components/right_navbar.html" %}
+        </div>
+        <div class="w-100 d-flex ex2">
+            <div class="p-0 ex3" style="width: 215px">
+                <div class="" id="tweetme-2-left-nav" data-username="A" data-can-tweet="true"></div>
+            </div>
+            <div class="p-0 ex4 ml-auto" style="width: 215px">
+                <div id="tweetme-2-toptrend"></div>
+            </div>
+            <div
+                    class="tweetme-2-detail"
+                    style="position: relative;margin-top: 72px; margin-left: 25%; width: 700px"
+                    data-tweet-id='{{ tweet_id }}'>
+            </div>
+
+        </div>
+       <div class="p-0 ex5" style="width: 498px">
+                <div class="" id="tweetme-2-footer" data-username="A" data-can-tweet="true"></div>
+            </div>
+    </div>
+
+
+{% endblock content %}

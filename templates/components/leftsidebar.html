@@ -1,0 +1,62 @@
+
+<div class="w-100 border rounded" style="width: 90%;">
+    <nav class="navbar navbar-default p-0" style="background-color: #f7f7f7">
+        <div class="container-fluid pl-4 mb-0" style="border: none; border-radius: 10px">
+            <ul class="nav navbar-nav ">
+                <li class="active mb-3"><a class="d-inline-flex" href="/">
+                    <i class="fa fa-home" style="font-size: 19px" aria-hidden="true"> Home</i></a></li>
+                {% if request.user.is_authenticated %}
+                    <li class="mb-3"><a href="/profile/"><i class="fa fa-user" style="font-size: 19px"
+                                                            aria-hidden="true">
+                        Profile</i></a></li>
+                {% endif %}
+                <li class="mb-3"><a href="#" style="color: black"><i class="fa fa-bell" style="font-size: 19px;"
+                                                                     aria-hidden="true">
+                </i> Notifications</a></li>
+                <li class="mb-3"><a href="/chat/following/search"><i class="fa fa-envelope" style="font-size: 19px" aria-hidden="true">
+                    Message</i></a></li>
+            <li class="mb-3"><a href="/bookmark/"><i class="fa fa-bookmark" style="font-size: 19px" aria-hidden="true">
+                    Bookmark</i></a></li>
+                <li onclick="topFunction()" class="mb-3"><a href="#"><i class="fa fa-inbox" style="font-size: 19px"
+                                                                        aria-hidden="true">
+                    Create Tweet</i></a></li>
+            </ul>
+        </div>
+        <div class="w-75 mb-2 mx-auto" style="height: 1px;background-color: black">
+        </div>
+        <div class="container-fluid pl-4 mb-3" style="border: none; border-radius: 10px">
+            <ul class="nav navbar-nav" style="font-size: 15px">
+                <li class="active mb-3"><a style="font-family: 'Arial Black', sans-serif;font-size: 18px" class="d-inline-flex text-center" style="color: black"
+                                           href="/">Communities</a>
+                </li>
+                <li class="mb-3"><a class="" style="font-family: Roboto, sans-serif;font-size: 18px" href="/community/news/"> News</a></li>
+                <li class="mb-3"><a style="font-family: Roboto, sans-serif;font-size: 18px" href="/community/anime/">Anime</a></li>
+                <li class="mb-3"><a style="font-family: Roboto, sans-serif;font-size: 18px" href="/community/art & design/">Art & Design</a></li>
+                <li class="mb-3"><a style="font-family: Roboto, sans-serif;font-size: 18px" href="/community/music/">Music</a></li>
+                <li class="mb-3"><a style="font-family: Roboto, sans-serif;font-size: 18px" href="/community/animals & pets/">Animals & Pets</a></li>
+            </ul>
+        </div>
+        <div class=" " style="width: 200px;font-size: 10px;height: 200px">
+            <ul class="m-0">
+                <li class="">Quyền riêng tư</li>
+            </ul>
+            <ul class="m-0">
+                <li class="">Điều khoảng</li>
+            </ul>
+            <ul class="d-flex m-0" style="position: relative">
+                <li class="">Quảng cáo</li>
+                <li class="ml-3" style="">Cookies</li>
+            </ul>
+            <ul>
+                <li class="">Tweet @ 2020</li>
+            </ul>
+        </div>
+
+    </nav>
+    <script>
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</div>

@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load socialaccount %}
+    {% providers_media_js %}
+    {% if description %}
+        <p>{{ description }}</p>
+    {% endif %}
+    <style>
+        div.ex1 {
+            position: fixed;
+            top: -1px;
+            z-index: 2;
+        }
+
+        div.ex2 {
+            z-index: 1;
+        }
+
+        div.ex3 {
+            position: fixed;
+            top: 100px;
+            left: 10%;
+            width: 100%;
+            z-index: 2;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        /* style the container */
+        .container {
+            position: relative;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+
+        }
+
+        /* style inputs and link buttons */
+        input, .btn01 {
+            width: 50%;
+            padding: 12px;
+
+            border-radius: 4px;
+            margin: 5px 0;
+            opacity: 0.85;
+            display: inline-block;
+            font-size: 17px;
+            line-height: 20px;
+            text-decoration: none; /* remove underline from anchors */
+        }
+
+        input:hover,
+        .btn:hover {
+            opacity: 1;
+        }
+
+        /* add appropriate colors to fb, twitter and google buttons */
+        .fb {
+            background-color: #3B5998;
+            color: white;
+        }
+
+        .twitter {
+            background-color: #55ACEE;
+            color: white;
+        }
+
+        .google {
+            background-color: #dd4b39;
+            color: white;
+        }
+
+        /* style the submit button */
+
+
+        /* Two-column layout */
+
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* vertical line */
+        .vl {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            border: 2px solid #ddd;
+            height: 175px;
+        }
+
+        /* text inside the vertical line */
+        .inner {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            padding: 8px 10px;
+        }
+
+        /* hide some text on medium and large screens */
+        .hide-md-lg {
+            display: none;
+        }
+
+        /* bottom container */
+        .bottom-container {
+            text-align: center;
+            background-color: #666;
+            border-radius: 0px 0px 4px 4px;
+        }
+
+        /* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 650px) {
+            .col {
+                width: 100%;
+                margin-top: 0;
+            }
+
+            /* hide the vertical line */
+            .vl {
+                display: none;
+            }
+
+            /* show the hidden text on small screens */
+            .hide-md-lg {
+                display: block;
+                text-align: center;
+            }
+        }
+    </style>
+    <div style="position: relative;margin-bottom: 100px">
+        <div class="w-100 h-auto      ex1" style="background-color: #FFFFFF">
+            {% include "components/right_navbar.html" %}
+        </div>
+        <div class="w-100 d-flex ex2">
+            <div class="p-0 ex3" style="width: 215px">
+                <div class="" id="tweetme-2-left-nav" data-username="A" data-can-tweet="true"></div>
+            </div>
+            <div class="w-100" style="margin-left: 20%">
+                <div class="mx-auto" data-spy="scroll" class="scroll"
+                     style="position: relative; overflow: auto;margin-top: 150px; width: 700px">
+                    <h3 class="text-xl-left text-primary">{{ title }}</h3>
+                    <div class="" id="tweetme-2-register" data-username="A" data-can-tweet="true"></div>
+                    {% csrf_token %}
+                    {% include 'components/form.html' %}
+                    {% if register %}
+                        <div class="" style="margin-left: 70px">
+                            <a class="mx-auto" href="/register/">{{ register }}</a>
+                        </div>
+                    {% endif %}
+                    {% if not request.user.is_authenticated %}
+                        <div class="col" style="">
+                            <a href="{% provider_login_url "facebook" method="oauth2" %}" class="fb btn01 text-center">
+                                Login with Facebook
+                            </a>
+                            <a href="{% provider_login_url "google" %}" class="google btn01 text-center">
+                                Login with Google+
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <style>
+        input[type="text"], textarea {
+            background-color: #FFFFFF;
+        }
+
+        div.ex1 {
+            position: fixed;
+            top: -1px;
+            z-index: 2;
+        }
+
+        div.ex2 {
+            z-index: 1;
+        }
+
+        div.ex3 {
+            position: fixed;
+            top: 100px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        div.ex4 {
+            position: fixed;
+            top: 100px;
+            left: 80%;
+            width: 100%;
+            z-index: 2;
+        }
+    </style>
+    <div style="position: relative">
+        <div class="w-auto h-auto border border-dark ex1" style="height: 100px;background-color: #FFFFFF">
+            {% include "components/navbar.html" %}
+        </div>
+        <div class="w-100 d-flex ex2">
+            <div class="p-0 ex3" style="width: 215px">
+                {% include 'components/leftsidebar.html' %}
+            </div>
+            <div class="p-0 ex4 ml-auto" style="width: 215px">
+                {% include 'components/rightsidebar.html' %}
+            </div>
+            <div style="margin-left: 35%">
+                <div class="mx-auto mb-2" data-spy="scroll" class="scroll"
+                     style="position: relative;margin-top: 90px; overflow: auto; width: 700px">
+                    <h3 class="text-xl-left text-primary">{{ title }}</h3>
+                    {% csrf_token %}
+                    {% include 'components/form.html' %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+{% endblock content %}

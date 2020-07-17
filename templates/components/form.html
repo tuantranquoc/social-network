@@ -1,0 +1,14 @@
+{% load crispy_forms_tags %}
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    {% if type %}
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <div class="g-recaptcha" data-sitekey="6Lflw6cZAAAAADf1DWkRNfdb6KW5j9os0Yu1ve_n"></div>
+    {% endif %}
+    {% if message %}
+        <p class="text-danger">{{ message }}</p>
+    {% endif %}
+    <button type="submit" class="btn btn-secondary mx-auto mt-3">{% if btn_label %}
+        {{ btn_label }}{% else %}Save{% endif %}</button>
+</form>

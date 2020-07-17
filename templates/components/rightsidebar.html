@@ -1,0 +1,49 @@
+<div class="w-100 " style="width: 90%;">
+    <nav class="navbar navbar-default p-0">
+        <div class="container-fluid pl-4 mb-2" style="border: 2px solid darkturquoise; border-radius: 10px">
+            <ul class="nav navbar-nav" style="font-size: 15px">
+                <li class="active mb-3"><a class="d-inline-flex" href="/" style="color: black;font-size: 19px">
+                    Top Trending</a></li>
+                {% for h in hash_tag %}
+                    <li class="mb-3"><a href="/hash_tag/search/{{ h.hash_tag }}">
+                        #{{ h.hash_tag }}</a></li>
+                {% endfor %}
+
+            </ul>
+        </div>
+        <div class="container-fluid pl-4" style="border: 2px solid #d5d5d5; border-radius: 10px">
+            <ul class="nav navbar-nav " style="font-size: 15px">
+                <li class="active mb-3">
+                    <a class="" href="/" style="font-size: 15px;color: black">
+                        Recommended user</a>
+                </li>
+                <li class="mb-3">
+                    <div class="form-inline" style="position: relative">
+                        <a class="mr-2" href="/" style="font-size: 15px;color: black">user1</a>
+                        <button class="btn btn-outline-primary p-1" style="">
+                            <p class="my-auto p-0" style="position: relative;font-size: 15px">
+                                Follow
+                            </p>
+                        </button>
+                    </div>
+                </li>
+                <li class="mb-3">
+                    <div class="form-inline" style="position: relative">
+                        <a class="mr-2" href="/" style="font-size: 15px;color: black">user1</a>
+                        <button class="btn btn-outline-primary p-1" style="">
+                            <p class="my-auto p-0" style="position: relative;font-size: 15px">
+                                Follow
+                            </p>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</div>

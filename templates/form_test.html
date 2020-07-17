@@ -1,0 +1,21 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <div class="g-recaptcha" data-sitekey="6Lflw6cZAAAAADf1DWkRNfdb6KW5j9os0Yu1ve_n"></div>
+
+    <button type="submit" class="btn btn-secondary">{% if btn_label %}
+        {{ btn_label }}{% else %}Save{% endif %}</button>
+</form>
+
+
+
+<form action="/test/" method="post"> {% csrf_token %}
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pass">
+    </div>
+    <div class="g-recaptcha" data-sitekey="6Lflw6cZAAAAADf1DWkRNfdb6KW5j9os0Yu1ve_n"></div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,72 @@
+<style>
+    input[type="text"], textarea {
+
+        background-color: #f7f7f7;
+
+    }
+
+    input.ex {
+        font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans",
+        "Droid Sans", "Helvetica Neue", sans-serif;
+    }
+</style>
+
+<nav class="navbar mx-auto px-3 py-2 h-100 container-fluid navbar-expand-lg navbar-dark mb-2 navbar-inverse border-bottom"
+     style="background-color: #2bbbad;width: 80%">
+    <a class="navbar-brand"
+       style="font-size: 19px;
+    font-weight: 700;
+    line-height: 2px;
+    color: #fffefe;
+    font-family: system-ui,serif; text-decoration: none; width: 100px;"
+       href="/global/">ToDo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+        </span>
+    </button>
+    {% csrf_token %}
+    <form method="post" action="/hash_tag/search" class="form-inline">
+        {% csrf_token %}
+        <div class="active-purple-3 form-group-sm active-purple-4 mr-2">
+            <input class="form-control ex input-lg" type="text" name="hash_tag" style="font-size: 15px"
+                   aria-label="Search" placeholder="Search">
+        </div>
+        <button class="btn btn-outline-primary my-2 my-sm-0" style="font-family: 'Arial Black',serif; font-size: 15px"
+                type="submit">Search
+        </button>
+    </form>
+    <div class="collapse navbar-collapse " id="navbarNav">
+
+    </div>
+    <nav class="navbar navbar-light ml-auto">
+        <ul class="navbar-nav">
+            {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" style="color: #34a4e0" href="/logout/">Logout<span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #34a4e0; font-family: 'Arial',sans-serif" href="/profile/edit/">Edit<span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #34a4e0;font-family: 'Arial',serif"
+                       href="/profile/">{{ request.user }}<span
+                            class="sr-only">(current)</span></a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #34a4e0" href="/login/">Login <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #34a4e0 " href="/register/">Register<span
+                            class="sr-only">(current)</span></a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</nav>
