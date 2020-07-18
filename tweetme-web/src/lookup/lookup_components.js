@@ -22,7 +22,7 @@ export function backendLookup(method, endpoint, callback, data) {
     // getting html elements
     const xhr = new XMLHttpRequest();
     // `http://localhost:8000/api${endpoint}`
-    const url = `https://k01q.herokuapp.com/api${endpoint}`;
+    const url = `https://k02q.herokuapp.com/api${endpoint}`;
     xhr.open(method, url);
     const csrftoken = getCookie('csrftoken');
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -60,7 +60,7 @@ export function viewLookup(method, endpoint, callback, data) {
     // getting html elements
     const xhr = new XMLHttpRequest();
     // `http://localhost:8000/api${endpoint}`
-    const url = `https://k01q.herokuapp.com/${endpoint}`;
+    const url = `https://k02q.herokuapp.com/${endpoint}`;
     xhr.open(method, url);
     const csrftoken = getCookie('csrftoken');
     xhr.setRequestHeader("Content-Type", "application/json");

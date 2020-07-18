@@ -288,7 +288,7 @@ function ProfileBadge(props) {
         console.log("int file", intFile.files);
         console.log("img", intFile.files[0]);
         formData.append("img", intFile.files[0]);
-        const endpoint = `https://k01q.herokuapp.com/api/profiles/upload/he/`;
+        const endpoint = `https://k02q.herokuapp.com/api/profiles/upload/he/`;
         const csrftoken = getCookie('csrftoken');
         console.log("csrfToken", csrftoken);
         fetch(endpoint, {
@@ -490,7 +490,7 @@ export function File(props) {
         console.log("int file", state);
         console.log("img", intFile.files[0]);
         formData.append("img", intFile.files[0]);
-        const endpoint = `https://k01q.herokuapp.com/api/profiles/upload/avatar/`;
+        const endpoint = `https://k02q.herokuapp.com/api/profiles/upload/avatar/`;
         const csrftoken = getCookie('csrftoken');
         console.log("csrfToken", csrftoken);
         fetch(endpoint, {

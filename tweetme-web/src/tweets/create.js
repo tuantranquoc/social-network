@@ -44,7 +44,7 @@ export function TweetCreate(props) {
                 if (state !== undefined) {
                     const formData = new FormData();
                     formData.append("img", state);
-                    const endpoint = `https://k01q.herokuapp.com/api/tweets/create/image/${response.id}`;
+                    const endpoint = `https://k02q.herokuapp.com/api/tweets/create/image/${response.id}`;
                     const csrftoken = getCookie('csrftoken');
                     console.log("csrfToken", csrftoken);
                     fetch(endpoint, {

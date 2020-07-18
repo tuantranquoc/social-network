@@ -40,7 +40,7 @@ export function apiTweetList(username, callback, nextUrl) {
         endpoint = `/tweets/?username=${username}`;
     }
     if (nextUrl) {
-        endpoint = nextUrl.replace('https://k01q.herokuapp.com', '')
+        endpoint = nextUrl.replace('https://k02q.herokuapp.com', '')
     }
     backendLookup("GET", endpoint, callback,)
 }
@@ -53,7 +53,7 @@ export function apiTweetListTest(callback) {
 export function apiTweetFeed(callback, nextUrl) {
     let endpoint = "/tweets/feed/";
     if (nextUrl) {
-        endpoint = nextUrl.replace('https://k01q.herokuapp.com', '')
+        endpoint = nextUrl.replace('https://k02q.herokuapp.com', '')
     }
     backendLookup("GET", endpoint, callback,)
 }
@@ -61,7 +61,7 @@ export function apiTweetFeed(callback, nextUrl) {
 export function apiTweetBookmark(callback, nextUrl) {
     let endpoint = "/bookmark/";
     if (nextUrl) {
-        endpoint = nextUrl.replace('https://k01q.herokuapp.com', '')
+        endpoint = nextUrl.replace('https://k02q.herokuapp.com', '')
     }
     backendLookup("GET", endpoint, callback,)
 }
@@ -70,7 +70,7 @@ export function apiCommunityFeed(community, callback, nextUrl) {
     let endpoint = `/tweets/community/find/${community}/`;
     console.log("endp", endpoint);
     if (nextUrl) {
-        endpoint = nextUrl.replace('https://k01q.herokuapp.com', '')
+        endpoint = nextUrl.replace('https://k02q.herokuapp.com', '')
     }
     backendLookup("GET", endpoint, callback,)
 }
@@ -80,7 +80,7 @@ export function apiHashTagSearch(hashTag, callback, nextUrl) {
     let endpoint = `/tweets/hash_tag/search`;
     console.log("endp", endpoint);
     if (nextUrl) {
-        endpoint = nextUrl.replace('https://k01q.herokuapp.com', '')
+        endpoint = nextUrl.replace('https://k02q.herokuapp.com', '')
     }
     backendLookup("POST", endpoint, callback,data)
 }

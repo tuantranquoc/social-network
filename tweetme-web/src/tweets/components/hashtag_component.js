@@ -149,11 +149,11 @@ export function HashTagSearch(props) {
                     let avatar = newTweet.user.avatar;
                     let background = newTweet.user.background;
                     let image = newTweet.image;
-                    if (avatar.includes('k01q') === false) {
-                        avatar = 'https://k01q.herokuapp.com' + avatar;
-                        background = 'https://k01q.herokuapp.com' + background;
+                    if (avatar.includes('k02q') === false) {
+                        avatar = 'https://k02q.herokuapp.com' + avatar;
+                        background = 'https://k02q.herokuapp.com' + background;
                         if (image !== null) {
-                            image = 'https://k01q.herokuapp.com' + image;
+                            image = 'https://k02q.herokuapp.com' + image;
                         }
                         newTweet.user.avatar = avatar;
                         newTweet.user.background = background;
@@ -198,11 +198,11 @@ export function HashTagSearch(props) {
         let avatar = newTweet.user.avatar;
         let background = newTweet.user.background;
         let image = newTweet.image;
-        if (avatar.includes('k01q') === false) {
-            avatar = 'https://k01q.herokuapp.com' + avatar;
-            background = 'https://k01q.herokuapp.com' + background;
+        if (avatar.includes('k02q') === false) {
+            avatar = 'https://k02q.herokuapp.com' + avatar;
+            background = 'https://k02q.herokuapp.com' + background;
             if (image !== null) {
-                image = 'https://k01q.herokuapp.com' + image;
+                image = 'https://k02q.herokuapp.com' + image;
             }
             newTweet.user.avatar = avatar;
             newTweet.user.background = background;
@@ -214,11 +214,11 @@ export function HashTagSearch(props) {
         avatar = newTweet.parent.user.avatar;
         background = newTweet.parent.user.background;
         // image = newTweet.image;
-        if (avatar.includes('k01q') === false) {
-            avatar = 'https://k01q.herokuapp.com' + avatar;
-            background = 'https://k01q.herokuapp.com' + background;
+        if (avatar.includes('k02q') === false) {
+            avatar = 'https://k02q.herokuapp.com' + avatar;
+            background = 'https://k02q.herokuapp.com' + background;
             if (image !== null) {
-                image = 'https://k01q.herokuapp.com' + image;
+                image = 'https://k02q.herokuapp.com' + image;
             }
             newTweet.parent.user.avatar = avatar;
             newTweet.parent.user.background = background;
