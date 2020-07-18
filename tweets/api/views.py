@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 from django.core.files.base import ContentFile
 from django.db.models import Q, Count
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
@@ -56,6 +56,8 @@ def comment_parent_list_view(request, comment_id, *args, **kwargs):
 
 @api_view(['POST'])
 def child_comment_create_view(request, comment_id, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     """
     data = {"content":"CONTENT"}
     """
@@ -74,6 +76,8 @@ def child_comment_create_view(request, comment_id, *args, **kwargs):
 
 @api_view(['POST'])  # http method client has send == POST
 def comment_create_view(request, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     if request.user.is_authenticated:
         content = request.data.get("content")
         tweet_id = request.data.get("id")
@@ -106,6 +110,8 @@ def comment_api_view(request, tweet_id, *args, **kwargs):
 
 @api_view(['POST'])  # http method client has send == POST
 def tweet_create_view(request, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     if request.user.is_authenticated:
         serializer = TweetCreateSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
@@ -142,6 +148,8 @@ def tweet_create_view(request, *args, **kwargs):
 
 @api_view(['POST'])
 def tweet_image_create_view(request, tweet_id, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     if request.user.is_authenticated:
         if request.FILES:
             if request.FILES['img']:
@@ -160,6 +168,8 @@ def tweet_image_create_view(request, tweet_id, *args, **kwargs):
 @permission_classes([IsAuthenticated])
 @api_view(['POST'])  # http method client has send == POST
 def tweet_create_view_django_user(request, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     serializer = TweetCreateSerializer(data=request.data)
     if serializer.is_valid(raise_exception=True):
         serializer.save(user=request.user)
@@ -281,6 +291,8 @@ def tweet_action_view(request, *args, **kwargs):
 
 @api_view(['GET', 'POST'])
 def community_create_view(request, name, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     if request.user.is_staff:
         if not Community.objects.filter(community_type=name) and Community.objects.create(community_type=name):
             return Response({}, status=200)
@@ -301,6 +313,8 @@ def community_list_view(request, *args, **kwargs):
 
 @api_view(['POST'])
 def community_tweet_create(request, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     """
     ; create tweet with community set in data post
     """
@@ -324,6 +338,8 @@ def community_tweet_create(request, *args, **kwargs):
 
 @api_view(['POST'])
 def communities_tweet_create(request, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     """
     ; create tweet with community set in data post
     """
@@ -366,6 +382,8 @@ def hash_tag_views(request, *args, **kwargs):
 
 @api_view(['POST'])
 def hash_tag_create_views(request, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     if request.user.is_authenticated:
         hash_tag = request.data.get("hash_tag")
         tweet_id = request.data.get("id")
@@ -388,6 +406,8 @@ def hash_tag_create_views(request, *args, **kwargs):
 
 
 def hash_tag_create(user, tweet_id, hash_tag_list):
+    if not request.user:
+        return redirect("/login/")
     tweet = Tweet.objects.filter(id=tweet_id).first()
     for hash_tag in hash_tag_list:
         check_hash_tag = HashTag.objects.filter(hash_tag=hash_tag).first()

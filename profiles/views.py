@@ -11,6 +11,8 @@ from .serializers import PublicProfileSerializer
 
 
 def profile_update_view(request, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     if not request.user.is_authenticated:
         return redirect("/login")
     user = request.user
@@ -43,6 +45,8 @@ def profile_update_view(request, *args, **kwargs):
 
 # Create your views here.
 def profile_detail_view(request, username, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     # get the profile for the pass user name
     print(username)
     qs = Profile.objects.filter(user__username=username)
@@ -66,6 +70,8 @@ def profile_detail_view(request, username, *args, **kwargs):
 
 @api_view(['GET'])
 def profile_user_detail_view(request, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     # get the profile for the pass user name
     if request.user.is_authenticated:
         user = request.user
@@ -74,6 +80,8 @@ def profile_user_detail_view(request, *args, **kwargs):
 
 
 def profile_following_view(request, username, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     if request.user.is_authenticated:
         print("username-following", username)
         return render(request, 'profiles/following.html', context={"profile_username": username})
@@ -81,6 +89,8 @@ def profile_following_view(request, username, *args, **kwargs):
 
 
 def profile_follower_view(request, username, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     if request.user.is_authenticated:
         print("username-following", username)
         return render(request, 'profiles/follower.html', context={"profile_username": username})
@@ -89,6 +99,8 @@ def profile_follower_view(request, username, *args, **kwargs):
 
 @api_view(['GET', 'POST'])
 def profile_update_via_react_view(request, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     if not request.user.is_authenticated:
         return redirect("/login")
     user = request.user
@@ -116,6 +128,8 @@ def profile_update_via_react_view(request, *args, **kwargs):
 
 
 def profile_update_view_page(request, *args, **kwargs):
+    if not request.user:
+        return redirect("/login/")
     if request.user.is_authenticated:
         return render(request, 'profiles/edit.html', context={"profile_username": request.user.username})
     return redirect("/login/")
