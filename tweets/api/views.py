@@ -405,7 +405,7 @@ def hash_tag_create_views(request, *args, **kwargs):
             return Response(serializer.data, status=200)
 
 
-def hash_tag_create(request, tweet_id, hash_tag_list):
+def hash_tag_create(request,user, tweet_id, hash_tag_list):
     if not request.user:
         return redirect("/login/")
     tweet = Tweet.objects.filter(id=tweet_id).first()
