@@ -28,7 +28,7 @@ export function HandleCreateAndHashTagComponent(props) {
         event.preventDefault();
         const newVal = textAreaRef.current.value;
         const newHashTag = hashTag.current.value;
-        setTweet("Uploading")
+        setTweet("Uploading");
         console.log("new-tw", newVal.length);
         console.log("new-hash", newHashTag);
         let base64 = getBase64Image(document.getElementById("up-hashTag"));
