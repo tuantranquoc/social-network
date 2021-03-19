@@ -21,7 +21,7 @@ django-heroku==0.3.1
 django-recaptcha==2.0.6
 django-s3direct==1.1.7
 django-storages==1.9.1
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 dnspython==1.16.0
 docutils==0.15.2
 ez-setup==0.9
