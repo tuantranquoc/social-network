@@ -65,7 +65,7 @@ pyls==0.1.6
 PySocks==1.7.1
 python-dateutil==2.8.1
 python-jsonrpc-server==0.3.4
-python-jwt==2.0.1
+python-jwt==3.3.4
 python-language-server==0.32.0
 python3-openid==3.1.0
 pytz==2020.1
